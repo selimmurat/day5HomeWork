@@ -3,14 +3,14 @@ package DataAccess.Concrete;
 import java.util.ArrayList;
 import java.util.List;
 
-import Core.Abstract.GoogleService;
 import DataAccess.Abstract.UserDAO;
 import Entities.Concrete.User;
+
 
 public class HibernateUserDAO implements UserDAO {
 
 	List<User> users = new ArrayList<User>();
-
+	
 	@Override
 	public void add(User user) {
 

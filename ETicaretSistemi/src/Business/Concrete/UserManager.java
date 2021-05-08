@@ -33,14 +33,14 @@ public class UserManager implements UserService {
 		} else if (!validatePassword(user)) {
 			System.out.println("Parola en az 6 karakterden oluþmalýdýr.");
 			return;
-		}
-		sendMail(user.geteMail(), "aktivasyon.html");
+		}		
 		if (this.userDAO!=null) {
 			this.userDAO.add(user);
 		}
 		else if (this.googleService!=null) {
 			this.googleService.addGoogleUser(user);
 		}
+		sendMail(user.geteMail(), "aktivasyon.html");
 	}
 
 	@Override
@@ -60,7 +60,7 @@ public class UserManager implements UserService {
 	public void login(User user) {
 		for (User user1 : this.userDAO.getAll()) {
 			if (!(user1 == user)) {
-				System.out.println("Böyle bir kullanýcý yok öncellikle üye olmaný gerekmektedir.");
+				System.out.println("Böyle bir kullanýcý yok öncellikle üye olmanýz gerekmektedir.");
 			} else if (this.userDAO.isActive(user)) {
 				System.out.println("Sisteme baþarýlý bir þekilde giriþ yaptýnýz.");
 			} else {
@@ -73,7 +73,7 @@ public class UserManager implements UserService {
 
 	@Override
 	public void sendMail(String eMail, String activationLink) {
-		// TODO Auto-generated method stub
+		System.out.println("Aktivasyon maili gönderilmiþtir.");
 
 	}
 
