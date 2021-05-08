@@ -23,5 +23,7 @@ public interface UserService {
 	boolean validateEmail(User user);
 
 	boolean validatePassword(User user);
+	
+	boolean isUserActive(User user);
 
 }

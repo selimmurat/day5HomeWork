@@ -26,25 +26,10 @@ public class HibernateUserDAO implements UserDAO {
 		System.out.println("Kullanýcý silinmiþtir. " + user.getFristName() + "  " + user.getLastName());
 
 	}
-
 	@Override
 	public void update(User user) {
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public void login(String eMail, String password) {
-		System.out.println("Sisteme baþarýlý giriþ yapýlmýþtýr.");
-	}
-
-	@Override
-	public boolean isActive(User user) {
-		if (user.isActive()) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 	@Override

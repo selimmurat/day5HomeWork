@@ -54,6 +54,19 @@ public class UserManager implements UserService {
 	public boolean validatePassword(User user) {
 		String passwordRegex = ".{6,}";
 		return Pattern.matches(passwordRegex, user.getPassword());
+	}	
+
+
+	@Override
+	public boolean isUserActive(User user) {
+		for (User user1 : this.userDAO.getAll()) {
+			if (user1==user) {
+				if (user1.isActive()) {
+					return true;
+				}
+			}			
+		}
+		return false;
 	}
 
 	@Override
@@ -61,7 +74,7 @@ public class UserManager implements UserService {
 		for (User user1 : this.userDAO.getAll()) {
 			if (!(user1 == user)) {
 				System.out.println("Böyle bir kullanýcý yok öncellikle üye olmanýz gerekmektedir.");
-			} else if (this.userDAO.isActive(user)) {
+			} else if (isUserActive(user)) {
 				System.out.println("Sisteme baþarýlý bir þekilde giriþ yaptýnýz.");
 			} else {
 				System.out.println(

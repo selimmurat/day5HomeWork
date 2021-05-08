@@ -10,11 +10,7 @@ public interface UserDAO {
 
 	void delete(User user);
 
-	void update(User user);
-	
-	void login(String eMail, String password);
-	
-	boolean isActive(User user);
+	void update(User user);	
 
 	User get(int id);
 
